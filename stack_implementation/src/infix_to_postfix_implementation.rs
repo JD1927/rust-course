@@ -43,6 +43,22 @@
 
 */
 
+/* 
+    1. Priorities of operators
+        -> +, -
+        -> *, /
+        -> ^
+    2. If scanned operator is <= then the top of the stack in priority then pop operators until we have low priority. Add the popped elements to the postfix.
+
+    3. If "(" push it to the stack
+
+    4. If ")" pop elements until "(" and add popped elements to postfix
+
+    5. If operand then just add to the postfix
+*/
+
+
+
 fn main() {
     // let input_expr = String::from("(33+45/3*(2+9)-50)");
     let input_expr = String::from("(44+33) * (34+39)-36");
@@ -113,4 +129,8 @@ fn input() -> u32 {
 
     let input: u32 = input.trim().parse().expect("Invalid input");
     input
+}
+
+fn infix_to_postfix(input: Vec<String>) -> Vec<String> {
+    
 }
