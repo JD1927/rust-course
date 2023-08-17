@@ -11,17 +11,12 @@ enum ItemType {
     Magazine,
 }
 
-fn display_item_info(item: Item) -> Item {
-    let item_type = match item.item_type {
-        ItemType::Book => String::from("Book"),
-        ItemType::Magazine => String::from("Magazine"),
-    };
+fn display_item_info(item: &Item) {
     println!("Item");
     println!("ID: {}", item.id);
     println!("title: {}", item.title);
     println!("publication year: {}", item.year);
-    println!("type: {}", item_type);
-    item
+    println!("type: {:?}", item.item_type);
 }
 
 fn main() {
@@ -37,8 +32,6 @@ fn main() {
         year: 2011,
         item_type: ItemType::Magazine,
     };
-    let returned_book = display_item_info(my_book);
-    let returned_magazine = display_item_info(my_magazine);
-    println!("{:?}", returned_book);
-    println!("{:?}", returned_magazine);
+    display_item_info(&my_book);
+    display_item_info(&my_magazine);
 }
